@@ -1,0 +1,318 @@
+    {% extends 'base.html' %}   
+    {% load static %}
+    {% block content %}
+    <body>
+
+        <!-- Page Container -->
+        <!--
+            Available classes for #page-container:
+
+        GENERIC
+
+            'enable-cookies'                            Remembers active color theme between pages (when set through color theme helper Template._uiHandleTheme())
+
+        SIDEBAR & SIDE OVERLAY
+
+            'sidebar-r'                                 Right Sidebar and left Side Overlay (default is left Sidebar and right Side Overlay)
+            'sidebar-mini'                              Mini hoverable Sidebar (screen width > 991px)
+            'sidebar-o'                                 Visible Sidebar by default (screen width > 991px)
+            'sidebar-o-xs'                              Visible Sidebar by default (screen width < 992px)
+            'sidebar-inverse'                           Dark themed sidebar
+
+            'side-overlay-hover'                        Hoverable Side Overlay (screen width > 991px)
+            'side-overlay-o'                            Visible Side Overlay by default
+
+            'enable-page-overlay'                       Enables a visible clickable Page Overlay (closes Side Overlay on click) when Side Overlay opens
+
+            'side-scroll'                               Enables custom scrolling on Sidebar and Side Overlay instead of native scrolling (screen width > 991px)
+
+        HEADER
+
+            ''                                          Static Header if no class is added
+            'page-header-fixed'                         Fixed Header
+
+        HEADER STYLE
+
+            ''                                          Classic Header style if no class is added
+            'page-header-modern'                        Modern Header style
+            'page-header-inverse'                       Dark themed Header (works only with classic Header style)
+            'page-header-glass'                         Light themed Header with transparency by default
+                                                        (absolute position, perfect for light images underneath - solid light background on scroll if the Header is also set as fixed)
+            'page-header-glass page-header-inverse'     Dark themed Header with transparency by default
+                                                        (absolute position, perfect for dark images underneath - solid dark background on scroll if the Header is also set as fixed)
+
+        MAIN CONTENT LAYOUT
+
+            ''                                          Full width Main Content if no class is added
+            'main-content-boxed'                        Full width Main Content with a specific maximum width (screen width > 1200px)
+            'main-content-narrow'                       Full width Main Content with a percentage width (screen width > 1200px)
+        -->
+        <div id="page-container" class="sidebar-o enable-page-overlay side-scroll page-header-fixed page-header-modern main-content-boxed">
+
+            <!-- Side Overlay-->
+            {% include 'sideoverlay.html' %}
+            <!-- END Side Overlay -->
+            <!-- Sidebar -->
+            {%  include 'sidebar.html' %}
+            <!-- END Sidebar -->
+
+            <!-- Header -->
+            {% include 'header.html' %}
+            <!-- END Header -->
+
+            <!-- Main Container -->
+            <main id="main-container">
+
+                <!-- Quick Navigation -->
+                <div class="bg-body-dark">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-6 col-md-4 col-xl-2">
+                                <a class="block block-rounded text-center" href="javascript:void(0)">
+                                    <div class="block-content">
+                                        <p class="mt-5 mb-10">
+                                            <i class="fa fa-envelope-o text-gray fa-2x d-xl-none"></i>
+                                            <i class="fa fa-envelope-o text-gray fa-3x d-none d-xl-inline-block"></i>
+                                        </p>
+                                        <p class="font-w600 font-size-sm text-uppercase">Inbox</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                                <a class="block block-rounded text-center" href="javascript:void(0)">
+                                    <div class="block-content">
+                                        <p class="mt-5 mb-10">
+                                            <i class="fa fa-pencil text-gray fa-2x d-xl-none"></i>
+                                            <i class="fa fa-pencil text-gray fa-3x d-none d-xl-inline-block"></i>
+                                        </p>
+                                        <p class="font-w600 font-size-sm text-uppercase">Profile</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                                <a class="block block-rounded text-center" href="javascript:void(0)">
+                                    <div class="block-content">
+                                        <p class="mt-5 mb-10">
+                                            <i class="fa fa-wrench text-gray fa-2x d-xl-none"></i>
+                                            <i class="fa fa-wrench text-gray fa-3x d-none d-xl-inline-block"></i>
+                                        </p>
+                                        <p class="font-w600 font-size-sm text-uppercase">Settings</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                                <a class="block block-rounded text-center" href="{% url 'studentregister' %}">
+                                    <div class="block-content">
+                                        <p class="mt-5 mb-10">
+                                            <i class="fa fa-plus-square-o text-gray fa-2x d-xl-none"></i>
+                                            <i class="fa fa-plus-square-o text-gray fa-3x d-none d-xl-inline-block"></i>
+                                        </p>
+                                        <p class="font-w600 font-size-sm text-uppercase">Add Student</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                                <a class="block block-rounded text-center" href="javascript:void(0)">
+                                    <div class="block-content">
+                                        <p class="mt-5 mb-10">
+                                            <i class="fa fa-plus-square-o text-gray fa-2x d-xl-none"></i>
+                                            <i class="fa fa-plus-square-o text-gray fa-3x d-none d-xl-inline-block"></i>
+                                        </p>
+                                        <p class="font-w600 font-size-sm text-uppercase">Add Results</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                                <a class="block block-rounded text-center" href="{% url 'staffregister' %}">
+                                    <div class="block-content">
+                                        <p class="mt-5 mb-10">
+                                            <i class="fa fa-plus-square-o text-gray fa-2x d-xl-none"></i>
+                                            <i class="fa fa-plus-square-o text-gray fa-3x d-none d-xl-inline-block"></i>
+                                        </p>
+                                        <p class="font-w600 font-size-sm text-uppercase">Add Staff</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Quick Navigation -->
+
+                <!-- Page Content -->
+                <div class="content">
+                    <!-- Overview -->
+                    <div class="row invisible" data-toggle="appear">
+                        <div class="col-md-4">
+                            <a class="block block-rounded block-bordered block-link-shadow" href="javascript:void(0)">
+                                <div class="block-content block-content-full">
+                                    <div class="py-20 text-center">
+                                        <div class="mb-10">
+                                            <i class="fa fa-user-circle-o fa-3x text-corporate"></i>
+                                        </div>
+                                        <div class="font-size-h4 font-w600">5 Patients</div>
+                                        <div class="text-muted">2 were added today!</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a class="block block-rounded block-bordered block-link-shadow" href="javascript:void(0)">
+                                <div class="block-content block-content-full">
+                                    <div class="py-20 text-center">
+                                        <div class="mb-10">
+                                            <i class="fa fa-calendar fa-3x text-elegance"></i>
+                                        </div>
+                                        <div class="font-size-h4 font-w600">6 Appointments</div>
+                                        <div class="text-muted">4 are scheduled for today!</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a class="block block-rounded block-bordered block-link-shadow" href="javascript:void(0)">
+                                <div class="block-content block-content-full">
+                                    <div class="py-20 text-center">
+                                        <div class="mb-10">
+                                            <i class="fa fa-paypal fa-3x text-primary"></i>
+                                        </div>
+                                        <div class="font-size-h4 font-w600">2 Payments</div>
+                                        <div class="text-muted">Pending for tomorrow.</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- END Overview -->
+
+                    <!-- students -->
+                    <div class="block block-rounded block-bordered invisible" data-toggle="appear">
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">Current Students</h3>
+                            <div class="block-options">
+                                <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
+                                    <i class="si si-refresh"></i>
+                                </button>
+                                <button type="button" class="btn-block-option">
+                                    <i class="si si-wrench"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="block-content block-content-full">
+                            <div class="table-responsive">
+                                <table class="table table-borderless table-hover table-striped table-vcenter mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 100px;">ID</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Class</th>
+                                            <th>Year</th>
+                                            <th>Added</th>
+                                        </tr>
+                                    </thead>
+                                
+                                    <tbody>
+                                        {%for s in student%}
+                                        <tr>
+                                            <td>
+                                                <a class="font-w600" href="javascript:void(0)">{{ s.regid }}</a>
+                                            </td>
+                                            <td>
+                                                <strong>{{ s.first }}</strong>
+                                            </td>
+                                            <td>
+                                                <strong>{{ s.last }}</strong>
+                                            </td>
+                                            <td>
+                                                <span class="badge badge-primary">{{ s.grade }}</span>
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-sm btn-secondary" href="javascript:void(0)">
+                                                    <i class="si si-graduation fa-x"></i> {{ s.grade.year }}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <span class="text-muted font-italic">today</span>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                    
+                                </table>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END students -->
+
+                    <!-- Staff -->
+                    <div class="block block-rounded block-bordered invisible" data-toggle="appear">
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">Staff</h3>
+                            <div class="block-options">
+                                <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
+                                    <i class="si si-refresh"></i>
+                                </button>
+                                <button type="button" class="btn-block-option">
+                                    <i class="si si-wrench"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="block-content block-content-full">
+                            <div class="table-responsive">
+                                <table class="table table-borderless table-hover table-striped table-vcenter mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 100px;">ID</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Phone</th>
+                                            <th>Email</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for st in staff %}
+                                        <tr>
+                                            <td>
+                                                <a class="font-w600" href="javascript:void(0)">{{ st.empid }}</a>
+                                            </td>
+                                            <td>
+                                                <strong>{{ st.first }}</strong>
+                                            </td>
+                                            <td>
+                                                <strong>{{ st.last }}</strong>
+                                            </td>
+                                            <td>
+                                                <i class="si si-call-end"></i> {{ st.phone }}
+                                            </a> 
+                                            </td>
+                                            <td>
+                                                 <a href="">{{ st.email }}</a>
+                        
+                                            </td>
+                                            <!-- <td>
+                                                <a class="btn btn-sm btn-secondary m-5" href="javascript:void(0)">
+                                                    <i class="fa fa-edit text-primary mr-5"></i> Edit
+                                                </a>
+                                                <a class="btn btn-sm btn-secondary m-5" href="javascript:void(0)">
+                                                    <i class="fa fa-times text-danger mr-5"></i> Delete
+                                                </a>
+                                            </td> -->
+                                        </tr>
+                                       {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END staff -->
+                     <!-- Payments -->
+
+                    <!-- END Payments -->
+                </div>
+                <!-- END Page Content -->
+
+            </main>
+            <!-- END Main Container -->
+        </body>
+        {% endblock %}

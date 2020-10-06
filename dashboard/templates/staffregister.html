@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+        <div id="page-container" class="sidebar-o enable-page-overlay side-scroll page-header-modern main-content-boxed">
+            <!-- Side Overlay-->
+            {% include 'sideoverlay.html' %}
+            <!-- END Side Overlay -->
+
+            <!-- Sidebar -->
+            {%  include 'sidebar.html' %}
+
+            <!-- Header -->
+            {% include 'header.html' %}
+            <!-- END Header -->
+
+            <!-- Main Container -->
+            <main id="main-container">
+
+                <!-- Page Content -->
+                <div class="content">
+                    <!-- Simple Wizards -->
+                    <h2 class="content-heading" style="text-align:center;">Add New Staff</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <!-- Simple Wizard 2 -->
+
+                            <!-- END Simple Wizard 2 -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Simple Wizard -->
+                            <div class="js-wizard-simple block" style="text-align:center;">
+                                <!-- Step Tabs -->
+                                <ul class="nav nav-tabs nav-tabs-block nav-fill" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#wizard-simple-step1" data-toggle="tab">Personal</a>
+                                    </li>
+                                </ul>
+                                <!-- END Step Tabs -->
+
+                                <!-- Form -->
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                    <!-- Steps Content -->
+                                    <div class="block-content block-content-full tab-content" style="min-height: 265px;">
+                                        <!-- Step 1 -->
+                                        <div class="tab-pane active" id="wizard-simple-step1" role="tabpanel">
+                                            <div class="form-group">
+                                                {{ form|crispy }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-outline-info" type="submit">Submit</button>
+                                    </div>
+                                    <!-- END Steps Navigation -->
+                                </form>
+                                <!-- END Form -->
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Simple Wizard 2 -->
+
+                            <!-- END Simple Wizard 2 -->
+                        </div>
+                    </div>
+                    <!-- END Simple Wizards -->
+
+                </div>
+                <!-- END Page Content -->
+
+            </main>
+            <!-- END Main Container -->
+
+            {% endblock %}
