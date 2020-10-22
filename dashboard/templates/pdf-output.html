@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+
+    <style>
+        @page{
+            size:"A4";
+            margin: 2.5cm 1.5cm 3.5cm 1.5cm;
+
+            @top-center{
+                content: string(title);
+            }
+
+            @bottom-right{
+                content: "Page " counter(page) " of " counter(pages);
+            }
+             @bottom-left {
+                color: #5cbecf;
+                font-family: Pacifico;
+                content: '♥ Cipher Labs Inc';
+            }
+        }
+    </style>
+</head>
+<body>
+
+     <!-- students -->
+     <div class="block block-rounded block-bordered invisible" data-toggle="appear">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">Current Students</h3>
+            <div class="block-options">
+                <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
+                    <i class="si si-refresh"></i>
+                </button>
+                <button type="button" class="btn-block-option">
+                    <i class="si si-wrench"></i>
+                </button>
+            </div>
+        </div>
+        <div class="block-content block-content-full">
+            <div class="table-responsive">
+                <table class="table table-borderless table-hover table-striped table-vcenter mb-0">
+                    <thead>
+                        <tr>
+                            <th style="width: 100px;">ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Class</th>
+                            <th>Year</th>
+                            <th>Added</th>
+                        </tr>
+                    </thead>
+                
+                    <tbody>
+                        {%for s in student%}
+                        <tr>
+                            <td>
+                                <a class="font-w600" href="javascript:void(0)">{{ s.regid }}</a>
+                            </td>
+                            <td>
+                                <strong>{{ s.first }}</strong>
+                            </td>
+                            <td>
+                                <strong>{{ s.last }}</strong>
+                            </td>
+                            <td>
+                                <span class="badge badge-primary">{{ s.grade }}</span>
+                            </td>
+                            <td>
+                                <a class="btn btn-sm btn-secondary" href="javascript:void(0)">
+                                    <i class="si si-graduation fa-x"></i> {{ s.grade.year }}
+                                </a>
+                            </td>
+                            <td>
+                                <span class="text-muted font-italic">today</span>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    
+                </table>
+                
+            </div>
+        </div>
+    </div>
+    <!-- END students -->
+    
+</body>
+</html>

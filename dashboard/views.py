@@ -1,7 +1,14 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
-from .models import Student,Staff
+from .models import Student,Staff,Grade
 from .forms import StudentRegisterForm,StaffRegisterForm
+
+import datetime
+from django.http import HttpResponse
+from django.template.loader import render_to_string
+from weasyprint import HTML
+import tempfile
+
 
 # Create your views here.
 
@@ -43,3 +50,39 @@ def staffreg(request):
     else:
         form = StaffRegisterForm()
     return render(request, 'staffregister.html', {'form': form})
+
+
+def generate_pdf(request):
+    """Generate pdf."""
+    # Model data
+    grade = Grade.objects.all()
+    student = Student.objects.all().order_by('last')
+
+    context = {
+        'student': student,
+        'grade':grade
+    }
+
+    # Rendered
+    html_string = render_to_string('pdf-output.html',context)
+    html = HTML(string=html_string)
+    result = html.write_pdf()
+
+    # Creating http response
+    response = HttpResponse(content_type='application/pdf;')
+    response['Content-Disposition'] = 'inline; filename=list_of_students.pdf'
+    response['Content-Transfer-Encoding'] = 'binary'
+    with tempfile.NamedTemporaryFile(delete=True) as output:
+        output.write(result)
+        output.flush()
+        output.seek(0)
+        #output = open(output.name, 'rb')
+        response.write(output.read())
+
+    return response
+
+
+
+
+
+
