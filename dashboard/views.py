@@ -31,7 +31,6 @@ def studentreg(request):
         form = StudentRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            name = form.cleaned_data.get('first')
             messages.success(request, f'Student has been created! You can view in the list!')
             return redirect('dashboard')
     else:
@@ -44,8 +43,7 @@ def staffreg(request):
         form = StaffRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            name = form.cleaned_data.get('first')
-            messages.success(request, f'Staff has been created! You can view in the list!')
+            messages.success(request, f'Your account has been created! You are now able to log in!')
             return redirect('dashboard')
     else:
         form = StaffRegisterForm()
@@ -80,9 +78,5 @@ def generate_pdf(request):
         response.write(output.read())
 
     return response
-
-
-
-
 
 
