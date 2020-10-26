@@ -1,0 +1,64 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <body>
+        <div id="page-container" class="main-content-boxed">
+
+            <!-- Main Container -->
+            <main id="main-container">
+
+                <!-- Page Content -->
+                <div class="bg-image" style="background-image: url({% static 'dashboard/media/photos/photo34@2x.jpg' %});">
+                    <div class="row mx-0 bg-black-op">
+                        <div class="hero-static col-md-6 col-xl-8 d-none d-md-flex align-items-md-end">
+                            <div class="p-30 invisible" data-toggle="appear">
+                                <p class="font-size-h3 font-w600 text-white">
+                                    Get Inspired and Create.
+                                </p>
+                                <p class="font-italic text-white-op">
+                                    Copyright &copy; <span class="js-year-copy"></span>
+                                </p>
+                            </div>
+                        </div>
+                                <div class="hero-static col-md-6 col-xl-4 d-flex align-items-center bg-white text-center">
+                                    <div class="content content-full">
+                                        <!-- Header -->
+                                        <div class="px-30 pt-10 pb-30">
+                                            <a class="link-effect text-pulse font-w700" href="index.html">
+                                                <i class="si si-fire"></i>
+                                                <span class="font-size-xl text-pulse-dark">code</span><span class="font-size-xl">base</span>
+                                            </a>
+                                            <h1 class="h3 font-w700 mt-30 mb-10">Welcome Again</h1>
+                                            <h2 class="h5 font-w400 text-muted mb-30">You have been Logged out </h2>
+                                            <img class="img-avatar img-avatar96" src="{% static 'dashboard/media/avatars/avatar15.jpg' %}" alt="">
+                                        </div>
+                                        <!-- END Header -->
+        
+                                        <!-- Logout -->
+                                        <form class="js-validation-lock px-30" action="be_pages_auth_all.html" method="post">
+                                            <div class="form-group">
+                                                <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="{% url 'login' %}">
+                                                    <i class="fa fa-user text-muted mr-5"></i>Sign In Again
+                                                <div class="mt-30">
+                                                    <a class="link-effect text-muted mr-10 mb-5 d-inline-block" href="{% url 'register' %}">
+                                                        <i class="fa fa-user text-muted mr-5"></i> Don't have an account ? Sign Up
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                <!-- END logout -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Page Content -->
+
+            </main>
+            <!-- END Main Container -->
+        </div>
+        <!-- END Page Container -->
+
+    {% endblock %}
+
+  

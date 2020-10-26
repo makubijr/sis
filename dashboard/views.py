@@ -13,7 +13,7 @@ import tempfile
 # Create your views here.
 
 def home(request):
-    return render(request,'home.html',{})
+    return render(request,'dashboard/home.html',{})
 
 
 def dashboard(request):
@@ -23,7 +23,7 @@ def dashboard(request):
         'student':student,
         'staff':staff,
     }
-    return render(request,'dashboard.html',context)
+    return render(request,'dashboard/dashboard.html',context)
 
 
 def studentreg(request):
@@ -35,7 +35,7 @@ def studentreg(request):
             return redirect('dashboard')
     else:
         form = StudentRegisterForm()
-    return render(request, 'studentregister.html', {'form': form})
+    return render(request, 'dashboard/studentregister.html', {'form': form})
 
 
 def staffreg(request):
@@ -47,7 +47,7 @@ def staffreg(request):
             return redirect('dashboard')
     else:
         form = StaffRegisterForm()
-    return render(request, 'staffregister.html', {'form': form})
+    return render(request, 'dashboard/staffregister.html', {'form': form})
 
 
 def generate_pdf(request):
